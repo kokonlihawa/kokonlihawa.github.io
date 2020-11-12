@@ -47,7 +47,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Segi Empat Solid</h1>
+									<h1>Profile H</h1>
 								</header>
 								<form name="hitung">
 									(ρ) Pilih Jenis Material (kg/m<sup>3</sup>)<select id="material">
@@ -68,7 +68,9 @@
 									</select>
 									(h) Tinggi Penampang (mm)<input type="text" name="num1" placeholder="tinggi">
 									(b) Lebar Penampang (mm)<input type="text" name="num2" placeholder="lebar">
-									(L) Panjang Penampang (m)<input type="text" name="num3" placeholder="panjang">
+									(t<sub>w</sub>) Ketebalan Web (mm)<input type="text" name="num3" placeholder="Ketebalan">
+									(t<sub>f</sub>) Ketebalan Flange (mm)<input type="text" name="num4" placeholder="lebar">
+									(L) Panjang Penampang (m)<input type="text" name="num5" placeholder="panjang">
 									<button type="button" name="submit" value="submit" onclick="sumValues()">Check</button><br>
 
 									(K) keliling Penampang (mm)<input type="text" name="keliling" placeholder="keliling">
@@ -80,15 +82,17 @@
 								
 								<script type="text/javascript">
 									function sumValues() {
-										var tinggi,lebar,panjang,kelilings,luasp,volumex,selimuto,berate;
+										var tinggi,lebar,panjang,web,flange,kelilings,luasp,volumex,selimuto,berate;
 										var e = document.getElementById("material");
 										var strUser = parseInt(e.value);
 										tinggi=Number(document.hitung.num1.value);
 										lebar=Number(document.hitung.num2.value);
+										web=Number(document.hitung.num3.value);
+										flange=Number(document.hitung.num4.value);
 										panjang=Number(document.hitung.num3.value);
-										kelilings = 2*tinggi + 2*lebar;
+										kelilings = 2*lebar+2*tinggi+2*(lebar-web);
 										document.hitung.keliling.value=kelilings;
-										luasp = tinggi*lebar;
+										luasp = 2*lebar*flange+(tinggi-2*flange)*web;
 										document.hitung.luas.value=luasp;
 										volumex = (luasp/1000000)*panjang;
 										document.hitung.volume.value=volumex;

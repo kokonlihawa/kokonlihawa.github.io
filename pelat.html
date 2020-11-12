@@ -18,28 +18,28 @@
 					</header>
 
 				<!-- Nav -->
-				<nav id="nav">
-					<ul class="links">
-						<li class="active"><a href="index.html">Profile</a></li>
-						<li><a href="generic.html">Masa Jenis</a></li>
-						<li><a href="Segiempatsolid.html">Segi Empat Solid</a></li>
-						<li><a href="hollow.html">hollow</a></li>
-						<li><a href="lingkaransolid.html">Lingkaran Solid</a></li>
-						<li><a href="pipa.html">Pipa</a></li>
-						<li><a href="Pelat.html">Pelat</a></li>
-						<li><a href="hexagonal.html">Hexagon</a></li>
-						<li><a href="sikuL.html">Siku L</a></li>
-						<li><a href="profileu.html">Profile U</a></li>
-						<li><a href="channel.html">Channel</a></li>
-						<li><a href="profilh.html">Profile H</a></li>
-					</ul>
-					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-					</ul>
-				</nav>
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Profile</a></li>
+							<li><a href="generic.html">Masa Jenis</a></li>
+							<li><a href="Segiempatsolid.html">Segi Empat Solid</a></li>
+							<li><a href="hollow.html">hollow</a></li>
+							<li><a href="lingkaransolid.html">Lingkaran Solid</a></li>
+							<li><a href="pipa.html">Pipa</a></li>
+							<li><a href="Pelat.html">Pelat</a></li>
+							<li><a href="hexagonal.html">Hexagon</a></li>
+							<li><a href="sikuL.html">Siku L</a></li>
+							<li><a href="profileu.html">Profile U</a></li>
+							<li><a href="channel.html">Channel</a></li>
+							<li><a href="profilh.html">Profile H</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
 
 				<!-- Main -->
 					<div id="main">
@@ -47,7 +47,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Segi Empat Solid</h1>
+									<h1>Pelat</h1>
 								</header>
 								<form name="hitung">
 									(ρ) Pilih Jenis Material (kg/m<sup>3</sup>)<select id="material">
@@ -66,39 +66,33 @@
 										<option value="2200">Beton</option>
 										<option value="2400">Beton Betulang</option>
 									</select>
-									(h) Tinggi Penampang (mm)<input type="text" name="num1" placeholder="tinggi">
-									(b) Lebar Penampang (mm)<input type="text" name="num2" placeholder="lebar">
-									(L) Panjang Penampang (m)<input type="text" name="num3" placeholder="panjang">
+									(L) Panjang Penampang (mm)<input type="text" name="num1" placeholder="Panjang">
+									(w) Lebar Penampang (mm)<input type="text" name="num2" placeholder="lebar">
+									(t) Ketebalan Pelat (mm)<input type="text" name="num3" placeholder="Ketebalan">
 									<button type="button" name="submit" value="submit" onclick="sumValues()">Check</button><br>
 
 									(K) keliling Penampang (mm)<input type="text" name="keliling" placeholder="keliling">
 									(A) Luas Penampang (mm<sup>2</sup>)<input type="text" name="luas" placeholder="luas">
 									(V) Volume (m<sup>3</sup>)<input type="text" name="volume" placeholder="volume">
-									(Ap) Luas Selimut (m<sup>3</sup>)<input type="text" name="selimut" placeholder="luas selimut">
 									(W) Berat (kg)<input type="text" name="berat" placeholder="berat">
 								</form>
 								
 								<script type="text/javascript">
 									function sumValues() {
-										var tinggi,lebar,panjang,kelilings,luasp,volumex,selimuto,berate;
+										var panjang,lebar,ketebalan,kelilings,luasp,volumex,berate;
 										var e = document.getElementById("material");
 										var strUser = parseInt(e.value);
-										tinggi=Number(document.hitung.num1.value);
+										panjang=Number(document.hitung.num1.value);
 										lebar=Number(document.hitung.num2.value);
-										panjang=Number(document.hitung.num3.value);
-										kelilings = 2*tinggi + 2*lebar;
+										ketebalan=Number(document.hitung.num3.value);
+										kelilings = 2*panjang + 2*lebar;
 										document.hitung.keliling.value=kelilings;
-										luasp = tinggi*lebar;
+										luasp = panjang*lebar;
 										document.hitung.luas.value=luasp;
-										volumex = (luasp/1000000)*panjang;
+										volumex = (luasp*ketebalan)/1000000000;
 										document.hitung.volume.value=volumex;
-										selimuto = (kelilings/1000)*panjang;
-										document.hitung.selimut.value=selimuto;
 										berate = volumex * strUser;
 										document.hitung.berat.value=berate;
-										
-
-
 									}
 								</script>
 

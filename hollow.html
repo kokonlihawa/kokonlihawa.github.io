@@ -8,7 +8,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-		
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -47,31 +47,69 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Masa Jenis</h1>
-									<p>
-										<ul>
-											<li>Aluminium</li>
-											<li>Kuningan</li>
-											<li>Perunggu</li>
-											<li>Besi Cor</li>
-											<li>Khrom (Chrome)</li>
-											<li>Tembaga</li>
-											<li>Magnesium</li>
-											<li>Nikel</li>
-											<li>Baja (steel)</li>
-											<li>Titanium</li>
-											<li>Seng (zinc)</li>
-											<li>Stainless Steel</li>
-											<li>Beton</li>
-											<li>Beton Betulang</li>
-										</ul>
-									</p>
+									<h1>Hollow</h1>
 								</header>
-	
+								<form name="hitung">
+									(ρ) Pilih Jenis Material (kg/m<sup>3</sup>)<select id="material">
+										<option value="2712">Aluminuim</option>
+										<option value="8730">Kuningan</option>
+										<option value="8700">Perunggu</option>
+										<option value="7800">Besi Cor</option>
+										<option value="6856">Khrom (chrome)</option>
+										<option value="8930">Tembaga</option>
+										<option value="1738">Magnesium</option>
+										<option value="8800">Nikel</option>
+										<option value="7850">Baja Steel</option>
+										<option value="4500">Titanium</option>
+										<option value="7135">Seng (zinc)</option>
+										<option value="8000">stainless Steel</option>
+										<option value="2200">Beton</option>
+										<option value="2400">Beton Betulang</option>
+									</select>
+									(h) Tinggi Penampang (mm)<input type="text" name="num1" placeholder="tinggi">
+									(b) Lebar Penampang (mm)<input type="text" name="num2" placeholder="lebar">
+									(L) Panjang Penampang (m)<input type="text" name="num3" placeholder="panjang">
+									(t) Ketebalan Profile (mm)<input type="text" name="num4" placeholder="ketebalan">
+									<button type="button" name="submit" value="submit" onclick="sumValues()">Check</button><br>
+
+									(K) keliling Penampang (mm)<input type="text" name="keliling" placeholder="keliling">
+									(A) Luas Penampang (mm<sup>2</sup>)<input type="text" name="luas" placeholder="luas">
+									(V) Volume (m<sup>3</sup>)<input type="text" name="volume" placeholder="volume">
+									(Ap) Luas Selimut (m<sup>3</sup>)<input type="text" name="selimut" placeholder="luas selimut">
+									(W) Berat (kg)<input type="text" name="berat" placeholder="berat">
+								</form>
+								
+								<script type="text/javascript">
+									function sumValues() {
+										var tinggi,lebar,panjang,tebalan,kelilings,luasp,volumex,selimuto,berate;
+										var e = document.getElementById("material");
+										var strUser = parseInt(e.value);
+										tinggi=Number(document.hitung.num1.value);
+										lebar=Number(document.hitung.num2.value);
+										panjang=Number(document.hitung.num3.value);
+										tebalan=Number(document.hitung.num4.value);
+										kelilings = 2*tinggi + 2*lebar;
+										document.hitung.keliling.value=kelilings;
+										luasp = (tinggi*lebar) - (tinggi - 2*tebalan )*( lebar - 2*tebalan );
+										document.hitung.luas.value=luasp;
+										volumex = (luasp/1000000)*panjang;
+										document.hitung.volume.value=volumex;
+										selimuto = (kelilings/1000)*panjang;
+										document.hitung.selimut.value=selimuto;
+										berate = volumex * strUser;
+										document.hitung.berat.value=berate;
+										
+
+
+									}
+								</script>
+
+
+								
 							</section>
 
 					</div>
-
+					
 				<!-- Footer -->
 					<footer id="footer">
 							<section>
@@ -97,5 +135,6 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			
 	</body>
 </html>

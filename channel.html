@@ -8,7 +8,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
+		
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -47,7 +47,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Segi Empat Solid</h1>
+									<h1>Channel</h1>
 								</header>
 								<form name="hitung">
 									(ρ) Pilih Jenis Material (kg/m<sup>3</sup>)<select id="material">
@@ -68,7 +68,9 @@
 									</select>
 									(h) Tinggi Penampang (mm)<input type="text" name="num1" placeholder="tinggi">
 									(b) Lebar Penampang (mm)<input type="text" name="num2" placeholder="lebar">
-									(L) Panjang Penampang (m)<input type="text" name="num3" placeholder="panjang">
+									(c) Lidah Channel (mm)<input type="text" name="num3" placeholder="Lidah">
+									(t) Ketebalan Profile (mm)<input type="text" name="num4" placeholder="Ketebalan">
+									(L) Panjang Penampang (m)<input type="text" name="num5" placeholder="panjang">
 									<button type="button" name="submit" value="submit" onclick="sumValues()">Check</button><br>
 
 									(K) keliling Penampang (mm)<input type="text" name="keliling" placeholder="keliling">
@@ -80,15 +82,17 @@
 								
 								<script type="text/javascript">
 									function sumValues() {
-										var tinggi,lebar,panjang,kelilings,luasp,volumex,selimuto,berate;
+										var tinggi,lebar,panjang,lidah,ketebalan,kelilings,luasp,volumex,selimuto,berate;
 										var e = document.getElementById("material");
 										var strUser = parseInt(e.value);
 										tinggi=Number(document.hitung.num1.value);
 										lebar=Number(document.hitung.num2.value);
-										panjang=Number(document.hitung.num3.value);
-										kelilings = 2*tinggi + 2*lebar;
+										lidah=Number(document.hitung.num3.value);
+										ketebalan=Number(document.hitung.num4.value);
+										panjang=Number(document.hitung.num5.value);
+										kelilings = tinggi + 2*lebar + 4*lidah + 2*(lebar-ketebalan)+tinggi-ketebalan*2
 										document.hitung.keliling.value=kelilings;
-										luasp = tinggi*lebar;
+										luasp = 2*lebar*ketebalan+(tinggi-2*ketebalan)*ketebalan+2*(lidah-ketebalan)*ketebalan;
 										document.hitung.luas.value=luasp;
 										volumex = (luasp/1000000)*panjang;
 										document.hitung.volume.value=volumex;
