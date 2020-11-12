@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>projectkokon</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Profile</a>
+					</header>
+
+				<!-- Nav -->
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Segi Empat Solid</h1>
+								</header>
+								<form name="hitung">
+									Pilih Jenis Material<select id="material">
+										<option value="2712">Aluminuim</option>
+										<option>Kuningan</option>
+										<option>Perunggu</option>
+										<option>Besi Cor</option>
+										<option>Khrom (chrome)</option>
+										<option>Tembaga</option>
+										<option>Magnesium</option>
+										<option>Nikel</option>
+										<option>Baja Steel</option>
+										<option>Titanium</option>
+										<option>Seng (zinc)</option>
+										<option>stainless Steel</option>
+										<option>Beton</option>
+										<option>Beton Betulang</option>
+									</select>
+									Tinggi Penampang<input type="text" name="num1" placeholder="Tinggi">
+									Lebar Penampang<input type="text" name="num2" placeholder="Lebar">
+									Panjang Penampang<input type="text" name="num3" placeholder="Panjang">
+									luas<input type="text" name="panjang" placeholder="Panjang">
+									<button type="button" name="submit" value="submit" onclick="sumValues()">Check</button>
+
+								</form>
+								
+								<script type="text/javascript">
+									function sumValues() {
+										var num11,num22,num33,res;
+										var e = document.getElementById("material");
+										var strUser = e.value;
+										num11=Number(document.hitung.num1.value);
+										num22=Number(document.hitung.num2.value);
+										num33=Number(document.hitung.num3.value);
+										res = strUser+num11+num22+num33;
+										document.hitung.panjang.value=res;
+
+									}
+								</script>
+
+
+								
+							</section>
+
+					</div>
+					
+				<!-- Footer -->
+					<footer id="footer">
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+					
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			
+	</body>
+</html>
